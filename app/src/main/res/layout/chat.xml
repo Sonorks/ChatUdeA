@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/MensajeRecibido"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cargarMensajes"
+            android:text="Cargar Mensajes"
+            android:layout_below="@id/MensajeRecibido"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/MensajeChat"
+        android:hint="Mensaje"
+        android:layout_marginTop="80dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DestinoChat"
+        android:hint="Usuario destino"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/MensajeChat"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnChat"
+        android:layout_below="@id/DestinoChat"
+        android:text="Enviar mensaje"/>
+    </RelativeLayout>
+
+</LinearLayout>

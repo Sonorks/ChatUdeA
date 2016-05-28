@@ -1,0 +1,61 @@
+{
+  "project_info": {
+    "project_number": "739436493108",
+    "project_id": "gcm-compumovil"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739436493108:android:6012dc9f38ca1685",
+        "android_client_info": {
+          "package_name": "co.edu.udea.gcm.gp9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCYeDZyr2LzIHTGtK_h1rAAoConJQ-MUg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739436493108:android:ba5f4751970f8eb7",
+        "android_client_info": {
+          "package_name": "co.edu.udea.gcm.gp9.gcmcompumovil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCYeDZyr2LzIHTGtK_h1rAAoConJQ-MUg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

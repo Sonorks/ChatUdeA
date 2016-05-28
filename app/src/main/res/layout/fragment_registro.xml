@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRegistro"
+        android:text="@string/tituloRegistro"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/titulo"
+        />
+    <EditText
+        android:id="@+id/UsuarioRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
+        android:hint="@string/hintUsuario"
+        android:layout_marginTop="120dp"
+        />
+    <EditText
+        android:id="@+id/IDRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UsuarioRegistro"
+        android:inputType="textNoSuggestions"
+        android:hint="@string/hintID"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/SemestreRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/IDRegistro"
+        android:inputType="numberDecimal"
+        android:hint="@string/hintSemestre"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/FacultadRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SemestreRegistro"
+        android:inputType="textNoSuggestions"
+        android:hint="@string/hintFacultad"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/botonRegistro"
+        android:layout_below="@id/FacultadRegistro"
+        android:text="@string/btnRegistro"
+        android:layout_marginTop="90dp"
+
+        />
+</RelativeLayout>
