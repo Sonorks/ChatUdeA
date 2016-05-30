@@ -57,7 +57,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             public boolean onItemLongClick(AdapterView<?> arg0, View v,
                                            int index, long arg3) {
                 Cursor c =(Cursor) mensajesRecibidos.getItemAtPosition(index);
-                manager.eliminarMensajePorID(c.getString(0).toString());
+                manager.eliminarMensajePorID(c.getString(0));
                 cargarMensaje();
                 return true;
             }
@@ -69,15 +69,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             manager = new databaseManager(this);
             Cursor c = manager.cargarCursorUsuarioLogeo();
             c.moveToFirst();
-            userOrigen = c.getString(0).toString();
+            userOrigen = c.getString(0);
             enviarMensaje(userOrigen, destino.getText().toString(),mensaje.getText().toString(),"hoy","0");
             Toast.makeText(this,userOrigen,Toast.LENGTH_LONG).show();
         }
         else if ( v.getId() == R.id.cargarMensajes){
             cargarMensaje();
-        }
-        else if( v.getId() == R.id.MensajeRecibido){
-
         }
     }
     public void enviarMensaje(String userOrigen, String userDestino, String texto, String fecha, String id ){
@@ -110,10 +107,16 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         queue.add(req);
     }
     public void cargarMensaje(){
+        manager = new databaseManager(this);
         Cursor c = manager.cargarCursosMensajes();
-        String from[]= new String[]{manager.cn_id,manager.cn_mensaje,manager.cn_userEnvia};
-        int to[] = new int[]{R.id.idBuzon,R.id.mensajeBuzon,R.id.destinatarioBuzon};
-        adapter = new SimpleCursorAdapter(this, R.layout.buzon,c,from,to);
-        mensajesRecibidos.setAdapter(adapter);
+        if(c==null){
+            Toast.makeText(this,"No hay ningun mensaje para cargar",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String from[] = new String[]{manager.cn_id, manager.cn_mensaje, manager.cn_userEnvia};
+            int to[] = new int[]{R.id.idBuzon, R.id.mensajeBuzon, R.id.destinatarioBuzon};
+            adapter = new SimpleCursorAdapter(this, R.layout.buzon, c, from, to);
+            mensajesRecibidos.setAdapter(adapter);
+        }
     }
 }

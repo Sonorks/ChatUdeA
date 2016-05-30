@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +49,10 @@ public class RegistroActivity extends AppCompatActivity {
         ID = (EditText) findViewById(R.id.IDRegistro);
         facultad = (EditText) findViewById(R.id.FacultadRegistro);
         semestre = (EditText) findViewById(R.id.SemestreRegistro);
-        //token = mRegistrationIntentService.getToken();
         btnRegistro = (Button) findViewById(R.id.botonRegistro);
         Token token1 = null;
         token1 = token1.getInstance();
         token = token1.getToken();
-        Toast.makeText(this,token,Toast.LENGTH_LONG).show();
         btnRegistro.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -63,19 +62,17 @@ public class RegistroActivity extends AppCompatActivity {
                     manager.insertarLogeo(usuario.getText().toString());
                     Intent i = new Intent(getBaseContext(),ChatActivity.class);
                     startActivity(i);
-                    System.exit(0);
+                    //System.exit(0);
                 }
             }
         });
-    }
-    public String getUser(){
-        return user;
     }
     public void enviarRegistro(String usuario, String ID, String facultad, String semestre, String token){
         manager = new databaseManager(this);
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://udea-chat-kemquiros.c9users.io:8080/api/registros";
         manager.añadirUsuario(usuario,facultad,semestre);
+        manager.insertarLogeo(usuario);
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("nombre",usuario);
         params.put("token",token);
@@ -100,6 +97,7 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
         queue.add(req);
+        Log.d("test","Enviado registro de usuario con token"+token);
     }
 
 }

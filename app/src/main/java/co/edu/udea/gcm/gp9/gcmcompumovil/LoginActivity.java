@@ -45,8 +45,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     // UI references.
     private AutoCompleteTextView Usuario;
-    private View mProgressView;
-    private View mLoginFormView;
     private Button RegistrarseButton;
     private Button mSignInButton;
     databaseManager manager;
@@ -58,8 +56,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         Usuario = (AutoCompleteTextView) findViewById(R.id.usuarioLogin);
         mSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         RegistrarseButton = (Button) findViewById(R.id.registrarseLogin);
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
         manager = new databaseManager(this);
         mSignInButton.setOnClickListener(this);
         RegistrarseButton.setOnClickListener(this);
@@ -71,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             if(concuerda){
                 Intent i = new Intent(this,ChatActivity.class);
                 startActivity(i);
-                System.exit(0);
+                //System.exit(0);
             }
             else{
                 Toast.makeText(this,"El usuario no se encuentra",Toast.LENGTH_SHORT).show();
@@ -82,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             Log.d("test","al boton de registro en el login");
             Intent i = new Intent(this,RegistroActivity.class);
             startActivity(i);
-            System.exit(0);
+            //System.exit(0);
         }
     }
 

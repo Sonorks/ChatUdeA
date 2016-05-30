@@ -95,6 +95,7 @@ public class RegistrationIntentService extends IntentService {
         Token token1 = null;
         token1 = token1.getInstance();
         token1.setToken(token);
+        Log.d("test","El token generado es: "+token1.getToken());
         Intent login = new Intent(this,LoginActivity.class);
         login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(login);
