@@ -58,10 +58,16 @@ public class RegistroActivity extends AppCompatActivity {
             public void onClick(View v){
                 if (v.getId()== R.id.botonRegistro){
                     user= usuario.getText().toString();
-                    enviarRegistro(usuario.getText().toString(),ID.getText().toString(),facultad.getText().toString(),semestre.getText().toString(),token);
-                    manager.insertarLogeo(usuario.getText().toString());
-                    Intent i = new Intent(getBaseContext(),ChatActivity.class);
-                    startActivity(i);
+                    if(!usuario.getText().toString().equals("") && !ID.getText().toString().equals("") && !facultad.getText().toString().equals("") && !semestre.getText().equals(""))
+                    {
+                        enviarRegistro(usuario.getText().toString(), ID.getText().toString(), facultad.getText().toString(), semestre.getText().toString(), token);
+                        manager.insertarLogeo(usuario.getText().toString());
+                        Intent i = new Intent(getBaseContext(), ChatActivity.class);
+                        startActivity(i);
+                    }
+                    else{
+                        Toast.makeText(v.getContext(),"Los campos de texto no pueden quedar en blanco. Complete los datos e intente de nuevo",Toast.LENGTH_LONG).show();
+                    }
                     //System.exit(0);
                 }
             }

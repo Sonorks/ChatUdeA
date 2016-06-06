@@ -45,6 +45,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         destino = (EditText) findViewById(R.id.DestinoChat);
         btnCargarMensajes.setOnClickListener(this);
         btnEnviarMensaje.setOnClickListener(this);
+        manager = new databaseManager(this);
+        Cursor c = manager.cargarCursorUsuarioLogeo();
+        c.moveToFirst();
+        userOrigen = c.getString(0);
         mensajesRecibidos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position,
@@ -66,12 +70,13 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void onClick(View v){
         if(v.getId() == R.id.btnChat) {
-            manager = new databaseManager(this);
-            Cursor c = manager.cargarCursorUsuarioLogeo();
-            c.moveToFirst();
-            userOrigen = c.getString(0);
-            enviarMensaje(userOrigen, destino.getText().toString(),mensaje.getText().toString(),"hoy","0");
-            Toast.makeText(this,userOrigen,Toast.LENGTH_LONG).show();
+            if(mensaje.getText().toString().equals("")){
+                Toast.makeText(v.getContext(),"No hay mensaje, ingreselo y trate de nuevo",Toast.LENGTH_LONG);
+            }
+            else {
+                enviarMensaje(userOrigen, destino.getText().toString(), mensaje.getText().toString(), "hoy", "0");
+                Toast.makeText(this, userOrigen, Toast.LENGTH_LONG).show();
+            }
         }
         else if ( v.getId() == R.id.cargarMensajes){
             cargarMensaje();
